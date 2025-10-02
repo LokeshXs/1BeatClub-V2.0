@@ -2,7 +2,7 @@
 
 import { WEBSOCKET_SERVER_URL } from "@/lib/config";
 import { useUser } from "@clerk/nextjs";
-import { usePathname,useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, {
   createContext,
   useCallback,
@@ -14,13 +14,13 @@ import React, {
 type InitialStateType = {
   webSocketClient: WebSocket | null;
   connectingWebSocket: boolean;
-  isWebSocketConnected:boolean;
+  isWebSocketConnected: boolean;
 };
 
 export const WebSocketContext = createContext<InitialStateType>({
   webSocketClient: null,
   connectingWebSocket: true,
-  isWebSocketConnected:false
+  isWebSocketConnected: false,
 });
 
 export default function WebSocketClientProvider({
@@ -32,11 +32,11 @@ export default function WebSocketClientProvider({
   const pathname = usePathname();
   const [wsClient, setWsClient] = useState<WebSocket | null>(null);
   const [connectingWebSocket, setConnectingWebSocket] = useState<boolean>(true);
-  const [isWebSocketConnected,setIsWebSocketConnected] = useState<boolean>(false);
-  const [wsError,setWsError] = useState<Error | null>(null);
+  const [isWebSocketConnected, setIsWebSocketConnected] =
+    useState<boolean>(false);
+  const [wsError, setWsError] = useState<Error | null>(null);
   const { user } = useUser();
   const router = useRouter();
-
 
   const connectToWebSocketServer = useCallback((user_id: string) => {
     // Initializing the WebSocket
@@ -64,7 +64,7 @@ export default function WebSocketClientProvider({
     ws.onerror = () => {
       ws.close();
       console.log("WebSocket connection is closing to Due to Error!");
-     setWsError(new Error("WebSocket connection is closing to Due to Error!"))
+      setWsError(new Error("WebSocket connection is closing to Due to Error!"));
     };
   }, []);
 
@@ -73,6 +73,14 @@ export default function WebSocketClientProvider({
     console.log(pathname);
     if (user && pathname === "/dashboard") {
       connectToWebSocketServer(user.id);
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+          if (wsClient?.readyState !== WebSocket.OPEN) {
+            // Reconnecting after tab focus
+            connectToWebSocketServer(user.id);
+          }
+        }
+      });
     }
 
     return () => {
@@ -97,12 +105,18 @@ export default function WebSocketClientProvider({
     return () => clearInterval(pingInterval);
   }, [wsClient]);
 
-  if(wsError){
+  if (wsError) {
     throw wsError;
   }
 
   return (
-    <WebSocketContext.Provider value={{ webSocketClient: wsClientRef.current,connectingWebSocket,isWebSocketConnected }}>
+    <WebSocketContext.Provider
+      value={{
+        webSocketClient: wsClientRef.current,
+        connectingWebSocket,
+        isWebSocketConnected,
+      }}
+    >
       {children}
     </WebSocketContext.Provider>
   );
