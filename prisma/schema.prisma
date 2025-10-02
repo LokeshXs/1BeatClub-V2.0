@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum status {
+  PENDING
+  REJECTED
+  ACCEPTED
+}
+
+model User {
+  id             Int           @id @default(autoincrement())
+  user_id        String        @unique
+  email          String        @unique
+  name           String?
+  profileImage   String?
+  username       String        @unique
+  created_at     DateTime      @default(now())
+  myClubs        MusicClub[]
+  joinedClubs    MusicClub[]   @relation("clubmembers")
+  songsAdded     ListedSongs[]
+  Votes          Votes[]
+  Invitations    Invitations[] @relation("InvitedUser")
+  InvitatonsSent Invitations[] @relation("ClubOwnerUser")
+}
+
+model MusicClub {
+  id                     String        @id @default(uuid())
+  clubName               String
+  description            String?
+  clubOwnerId            String
+  maximumMembers         Int
+  currentlyPlatingSongId Int?
+  created_at             DateTime      @default(now())
+  ClubOwner              User          @relation(fields: [clubOwnerId], references: [user_id], onDelete: Cascade)
+  members                User[]        @relation("clubmembers")
+  listedSongs            ListedSongs[]
+  Invitations            Invitations[]
+}
+
+model ListedSongs {
+  id               Int       @id @default(autoincrement())
+  songTitle        String
+  user_id          String
+  thumbnail        String
+  highResThumbnail String?
+  link             String
+  clubId           String
+  videoId          String
+  votes            Votes[]
+  Club             MusicClub @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  user             User      @relation(fields: [user_id], references: [user_id])
+}
+
+model Votes {
+  songId  Int
+  user_id String
+  song    ListedSongs @relation(fields: [songId], references: [id], onDelete: Cascade)
+  user    User        @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+
+  @@id([songId, user_id])
+}
+
+model Invitations {
+  id                Int      @id @default(autoincrement())
+  to_userId         String
+  to_username       String
+  clubId            String
+  clubOwnerId       String
+  status            status   @default(PENDING)
+  clubOwnerUserName String
+  clubName          String
+  created_at        DateTime @default(now())
+
+  // Relations
+  toUser    User      @relation("InvitedUser", fields: [to_userId], references: [user_id], onDelete: Cascade)
+  club      MusicClub @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  clubOwner User      @relation("ClubOwnerUser", fields: [clubOwnerId], references: [user_id], onDelete: Cascade)
+
+  @@unique([to_userId, clubId])
+}
