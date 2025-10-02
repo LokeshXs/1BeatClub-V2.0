@@ -109,7 +109,7 @@ export default function ClubOptions({
       </div>
 
       <div className="hidden max-md:block">
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger>
             <IconMenu2 />
           </DropdownMenuTrigger>
