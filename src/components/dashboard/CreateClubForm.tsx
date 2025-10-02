@@ -27,7 +27,7 @@ import { IconConfettiFilled, IconPlus, IconX } from "@tabler/icons-react";
 import { createClubFormSchema as formSchema } from "@/lib/schema";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import { CURRENT_SERVER_URL, MAX_SIZE_MB } from "@/lib/config";
+import {  MAX_SIZE_MB } from "@/lib/config";
 import Loader from "../ui/loaders/loader1/Loader";
 import { CreateClubActionContext } from "@/context/CreateClubActionProvider";
 import { useMusicClubs } from "@/store/useMusicClubs";
@@ -55,7 +55,7 @@ function CreateClubForm() {
   const { isPending, mutate } = useMutation({
     mutationFn: async (values: z.infer<typeof formSchema>) => {
       const response = await axios.post(
-        `${CURRENT_SERVER_URL}/api/club/create`,
+        `/api/club/create`,
         {
           clubName: values.clubName,
           description: values.description,

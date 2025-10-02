@@ -5,64 +5,12 @@ import { Dialog, DialogContent } from "../ui/dialog";
 import { useQuery } from "@tanstack/react-query";
 import { useMusicClubs } from "@/store/useMusicClubs";
 import axios from "axios";
-import { CURRENT_SERVER_URL } from "@/lib/config";
 import { MembersType } from "@/lib/types";
 import { Skeleton } from "../ui/skeleton";
 import ClubMemberCard from "./ClubMemberCard";
 import { WebSocketContext } from "@/context/WebSocketClientProvider";
 
-const users = [
-  {
-    username: "lokesh1129",
-    email: "lokesh123@gmail.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-  {
-    username: "priya_88",
-    email: "priya88@example.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-  {
-    username: "rahul_dev",
-    email: "rahul.dev@example.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-  {
-    username: "mohit_singh",
-    email: "mohit.singh@example.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-  {
-    username: "sara_j",
-    email: "sara.j@example.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-  {
-    username: "ananya_23",
-    email: "ananya23@example.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-  {
-    username: "vivek_roy",
-    email: "vivek.roy@example.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-  {
-    username: "manish_kumar",
-    email: "manish.kumar@example.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-  {
-    username: "riya_mehra",
-    email: "riya.mehra@example.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-  {
-    username: "aditya_t",
-    email: "aditya.t@example.com",
-    avatar: "/club-avatars/avatar.png",
-  },
-];
+
 
  function MembersModal({
   openMembersModal,
@@ -85,7 +33,7 @@ const users = [
         );
       }
       const response = await axios.get(
-        `${CURRENT_SERVER_URL}/api/club/members`,
+        `/api/club/members`,
         {
           params: {
             clubId: selectedClub?.id,

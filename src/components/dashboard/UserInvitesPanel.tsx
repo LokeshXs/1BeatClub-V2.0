@@ -7,7 +7,6 @@ import { WebSocketContext } from "@/context/WebSocketClientProvider";
 import axios from "axios";
 import { UserInviteType } from "@/lib/types";
 import { Skeleton } from "../ui/skeleton";
-import { CURRENT_SERVER_URL } from "@/lib/config";
 import UserInvitationCard from "./UserInvitationCard";
 
  function UserInvitesPanel({
@@ -30,7 +29,7 @@ import UserInvitationCard from "./UserInvitationCard";
       }
 
       const response = await axios.get(
-        `${CURRENT_SERVER_URL}/api/user/invites`
+        `/api/user/invites`
       );
 
       const data = response.data;

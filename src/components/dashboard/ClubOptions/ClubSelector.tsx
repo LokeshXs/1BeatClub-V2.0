@@ -17,7 +17,6 @@ import { WebSocketContext } from "@/context/WebSocketClientProvider";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { CURRENT_SERVER_URL } from "@/lib/config";
 import { useMusicClubs } from "@/store/useMusicClubs";
 import { MusicClubType } from "@/lib/types";
 import { useSongs } from "@/store/useSongs";
@@ -47,7 +46,7 @@ export default function ClubSelector() {
       }
 
       const response = await axios.get(
-        `${CURRENT_SERVER_URL}/api/club/my-clubs`
+        `/api/club/my-clubs`
       );
 
       const data = response.data;

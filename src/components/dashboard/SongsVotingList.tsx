@@ -7,7 +7,6 @@ import SongCardSkeleton from "../skeletons/SongCardSkeleton";
 import { useMusicClubs } from "@/store/useMusicClubs";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { CURRENT_SERVER_URL } from "@/lib/config";
 import { ListedSongType } from "@/lib/types";
 import { useSongs } from "@/store/useSongs";
 import SuggestedSongsList from "./SuggestedSongsList";
@@ -30,7 +29,7 @@ export default function SongsVotingList() {
       if (fetchingClubs || !selectedMusicClub) {
         return [];
       }
-      const response = await axios.get(`${CURRENT_SERVER_URL}/api/songs/all`, {
+      const response = await axios.get(`/api/songs/all`, {
         params: {
           clubid: selectedMusicClub.id,
         },
@@ -46,7 +45,7 @@ export default function SongsVotingList() {
       const songs = data.songs as ListedSongType[];
 
       const currentSongRes = await axios.get(
-        `${CURRENT_SERVER_URL}/api/club/current-song`,
+        `/api/club/current-song`,
         {
           params: {
             clubid: selectedMusicClub.id,
