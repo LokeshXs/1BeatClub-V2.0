@@ -60,6 +60,7 @@ export default function ClubSelector() {
       setIsFetchingClubs(false);
       return myClubs;
     },
+    refetchOnWindowFocus:false
   });
 
   // Sending Websocket events when Club changes

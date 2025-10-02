@@ -19,6 +19,7 @@ export default function ClubOwnerPlayerView({
 }) {
   const nextSongPlease = useSongs((state) => state.skipToNextSong);
   const selectedClub = useMusicClubs((state) => state.selectedClub);
+ 
   const { webSocketClient } = useContext(WebSocketContext);
   const [_, startTransition] = useTransition();
 
@@ -84,7 +85,7 @@ export default function ClubOwnerPlayerView({
            {currentlyPlayingSong.songTitle}
           </p>
         </div>
-        <Button className=" bg-gradient-to-r from-gradient-start/80 via-gradient-via/80  to-gradient-end/80 bg-[length:200%_100%] bg-right  cursor-pointer flex items-center group  hover:bg-[length:100%_100%] hover:bg-center  transition-all duration-500  group flex-1 max-md:text-xs max-md:h-8 max-md:hidden">
+        <Button onClick={playNextSong} className=" bg-gradient-to-r from-gradient-start/80 via-gradient-via/80  to-gradient-end/80 bg-[length:200%_100%] bg-right  cursor-pointer flex items-center group  hover:bg-[length:100%_100%] hover:bg-center  transition-all duration-500  group flex-1 max-md:text-xs max-md:h-8 max-md:hidden">
           Next Song
           <IconChevronRight className=" group-hover:translate-x-1 transition-all duration-300" />
         </Button>
