@@ -31,7 +31,17 @@ export default function DashboardSection() {
         alt="1Beatclub's dashboard"
         width={1200}
         height={1200}
-        className=" rounded-md  -translate-y-24 "
+        className=" rounded-md  -translate-y-24 max-sm:hidden "
+      />
+       <motion.img
+        initial={{ y: 10, filter: "blur(10px)", opacity: 0 }}
+        animate={{ y: 0, filter: "blur(0px)", opacity: 1 }}
+        transition={{ delay: 1.8, duration: 0.3 }}
+        src="/assets/images/mobile-dash.png"
+        alt="1Beatclub's dashboard"
+        width={600}
+        height={600}
+        className=" rounded-md  -translate-y-24 sm:hidden  mask-b-from-[60%] "
       />
     </motion.section>
   );

@@ -76,7 +76,7 @@ export default function HeroSection() {
         // style={{
         //   backgroundImage:"radial-gradient(110% 110% at 50% 0%, transparent 60%, #b656f0)"
         // }}
-        className=" min-h-screen  relative flex justify-center items-center mt-12    "
+        className=" min-h-screen  relative flex justify-center items-center mt-12 max-sm:mt-0    "
       >
         <div className=" px-6  flex flex-col items-center gap-8 pb-6 ">
           <motion.div
