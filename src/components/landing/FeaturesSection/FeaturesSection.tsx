@@ -2,15 +2,20 @@
 
 import { PartyPopper, Dumbbell, BusFront, Users } from "lucide-react";
 import Image from "next/image";
-import { BentoCard, BentoGrid } from "../ui/BentoGrid";
-import { AnimatedList } from "../ui/AnimatedList";
-import SongCardHeroSection from "../common/SongCardHeroSection";
+import { BentoCard, BentoGrid } from "../../ui/BentoGrid";
+import { AnimatedList } from "../../ui/AnimatedList";
+import SongCardHeroSection from "../../common/SongCardHeroSection";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
-import { IconPointerFilled } from "@tabler/icons-react";
+import { Avatar, AvatarFallback, AvatarImage } from "../../ui/avatar";
+import { Button } from "../../ui/button";
+import {
+  IconPointerFilled,
+} from "@tabler/icons-react";
 import QRCode from "react-qrcode-logo";
+import animationData from "@/../public/assets/lottie/music-wave.json";
+import FourthBentoCard from "./FourthBentoCard";
+
 
 const songs = [
   {
@@ -74,7 +79,7 @@ const songs = [
   },
 ];
 
-const InviteCard = ({isActive=false}:{isActive?:boolean}) => {
+const InviteCard = ({ isActive = false }: { isActive?: boolean }) => {
   return (
     <div className="py-2 px-4 flex justify-between  items-center gap-4 inset-shadow-custom-hover rounded-lg w-full backdrop-blur-md ">
       <div className="flex items-center gap-2">
@@ -93,9 +98,12 @@ const InviteCard = ({isActive=false}:{isActive?:boolean}) => {
       <div>
         <Button
           size="sm"
-          className={cn("bg-gradient-to-r from-gradient-start via-gradient-via to-gradient-end bg-[length:200%_100%] bg-right cursor-pointer flex items-center group hover:bg-center transition-all duration-500 mx-auto text-sm min-w-[80px]",{
-            "bg-[length:100%_100%]":isActive
-          })}
+          className={cn(
+            "bg-gradient-to-r from-gradient-start via-gradient-via to-gradient-end bg-[length:200%_100%] bg-right cursor-pointer flex items-center group hover:bg-center transition-all duration-500 mx-auto text-sm min-w-[80px]",
+            {
+              "bg-[length:100%_100%]": isActive,
+            }
+          )}
         >
           invite
         </Button>
@@ -169,7 +177,6 @@ const features = [
             className=" object-cover object-center  "
           />
         </motion.div>
-
       </div>
     ),
   },
@@ -184,8 +191,8 @@ const features = [
     background: (
       <div className=" w-full h-full  absolute bg-radial-[140%_100%_at_10%_10%] max-sm:bg-radial-[200%_100%_at_50%_100%] from-gradient-start/20 top-0 left-0  ">
         <div className="   absolute right-24 max-sm:right-14 top-0 h-full w-[400px] max-sm:w-[340px] px-6 flex flex-col  pt-12 max-sm:pt-4 gap-6 mask-b-from-5% ">
-          <InviteCard isActive={true}/>
-          <InviteCard  />
+          <InviteCard isActive={true} />
+          <InviteCard />
           <InviteCard />
 
           <div className="absolute right-20 top-[76px] max-sm:top-[48px] after:content-[''] after:absolute after:-top-1 after:-left-1 after:w-6 after:h-6 after:bg-gradient-via after:rounded-full after:animate-ping ">
@@ -194,38 +201,29 @@ const features = [
 
           <div className=" absolute w-[1px] bg-gradient-to-b from-gradient-start/5 via-gradient-via/30 to-gradient-end/5 top-0 left-0 h-full" />
           <div className=" absolute w-[1px] bg-gradient-to-b from-gradient-start/5 via-gradient-via/30 to-gradient-end/5 top-0 right-0 h-full" />
-           <div className=" absolute -left-36 opacity-10 bottom-10 ">
+          <div className=" absolute -left-36 opacity-10 bottom-10 ">
             <QRCode
-                    size={240}
-                    bgColor="transparent"
-                    fgColor="#e7727b"
-                    qrStyle="dots"
-                    value="http://locahost:3000"
-                  />
+              size={240}
+              bgColor="transparent"
+              fgColor="#e7727b"
+              qrStyle="dots"
+              value="http://locahost:3000"
+            />
           </div>
         </div>
-       
       </div>
     ),
   },
   {
     Icon: Users,
-    name: "Study Groups and Work Sessions",
+    name: "See the Beat Come Alive",
     description:
-      "Stay focused together with a playlist voted by the group to boost productivity.",
+      "Enjoy a stunning, dynamic player that brings your music to life with visuals and motion.",
     className: "col-span-3 lg:col-span-1 bg-primary",
     href: "/sign-in",
     cta: "Try Now",
     background: (
-      <div className=" relative ">
-        <Image
-          src="/images/usecase4.svg"
-          alt=""
-          width={400}
-          height={400}
-          className=" absolute top-0 right-0 opacity-70 max-sm:w-72 group-hover:scale-90 group-hover:-translate-y-4 transition-all duration-300"
-        />
-      </div>
+      <FourthBentoCard/>
     ),
   },
 ];
