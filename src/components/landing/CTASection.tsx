@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 
 export default function CTASection() {
   return (
-    <div className="px-6">
+    <div className="px-6 max-sm:px-4">
       <div className=" relative overflow-hidden max-w-7xl mx-auto mt-40 max-md:mt-20 p-6 inset-shadow-custom-hover rounded-xl border border-neutral-300/20  min-h-[300px] flex flex-col items-center justify-center gap-4 mb-10  ">
       <motion.h2
         initial={{ opacity: 0, y: 40 }}

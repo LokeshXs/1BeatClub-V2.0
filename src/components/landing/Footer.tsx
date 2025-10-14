@@ -2,11 +2,12 @@
 
 import { cn } from "@/lib/utils";
 import { IconBrandLinkedin, IconBrandX } from "@tabler/icons-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const PRODUCT_LINKS = [
-  { name: "Contact us", href: "/contactus" },
+  { name: "Contact us", href: "/contact" },
   { name: "Pricing", href: "/#pricing" },
 ];
 
@@ -16,21 +17,19 @@ const LEGAL_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { name: "Twitter", href: "/privacy", icon: IconBrandX },
-  { name: "Linked in", href: "/terms", icon: IconBrandLinkedin },
+  { name: "Twitter", href: "https://x.com/singh_loke28577", icon: IconBrandX },
+  { name: "Linked in", href: "https://www.linkedin.com/in/lokeshsingh1129/", icon: IconBrandLinkedin },
 ];
 export default function Footer() {
 
     const pathname = usePathname();
   return (
-    <footer className={cn("mt-40 max-md:mt-20 px-6 bg-radial-[100%_100%_at_50%_100%] from-gradient-start/20",{
-        "hidden":pathname!=="/"
+    <footer className={cn("mt-40 max-md:mt-20 px-6 bg-radial-[100%_100%_at_50%_100%] from-gradient-start/20 hidden",{
+        "block":pathname==="/"||pathname==="/privacy"||pathname==="/terms"||pathname==="/contact"
     })}>
-      <div className=" max-w-7xl mx-auto py-12 flex items-center max-md:flex-col max-md:items-start max-md:gap-8  justify-between">
+      <div className=" max-w-7xl mx-auto py-12 flex items-center max-md:flex-col max-md:items-start max-md:gap-6  justify-between">
         <div>
-          <p className=" text-6xl max-lg:text-5xl max-md:text-4xl font-bold bg-gradient-to-r from-gradient-start via-gradient-via  to-gradient-end text-transparent bg-clip-text ">
-            1BeatClub
-          </p>
+          <Image src="/assets/logo.png" alt="1BeatClub" width={400} height={400} className="max-md:w-[300px] max-sm:w-[200px] " />
         </div>
         <div className=" flex gap-14 max-md:flex-col max-md:gap-8">
           <div className=" space-y-4 ">

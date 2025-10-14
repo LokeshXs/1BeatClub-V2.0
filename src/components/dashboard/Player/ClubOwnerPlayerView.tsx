@@ -80,7 +80,7 @@ export default function ClubOwnerPlayerView({
         transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
         className=" w-full flex   gap-6 max-md:gap-2 items-center justify-center px-4 "
       >
-        <div className="w-[400px] overflow-hidden max-sm:w-[240px]  ">
+        <div className="w-[400px] overflow-hidden max-sm:w-[240px]  mx-auto  ">
           <p className=" truncate  drop-shadow-md max-md:text-center max-md:text-xs ">
            {currentlyPlayingSong.songTitle}
           </p>

@@ -36,8 +36,8 @@ export default function ClubSelector() {
     setMusicClubs,
   } = useMusicClubs();
 
-  const { error } = useQuery({
-    queryKey: [isWebSocketConnected],
+  const { error,isLoading } = useQuery({
+    queryKey: ["my-clubs"],
     queryFn: async () => {
       if (!isWebSocketConnected) {
         throw new Error(
@@ -60,7 +60,8 @@ export default function ClubSelector() {
       setIsFetchingClubs(false);
       return myClubs;
     },
-    refetchOnWindowFocus:false
+    refetchOnWindowFocus:false,
+    enabled:isWebSocketConnected
   });
 
   // Sending Websocket events when Club changes
@@ -76,7 +77,7 @@ export default function ClubSelector() {
     }
   }, [selectedClub, user?.id, webSocketClient]);
 
-  if (connectingWebSocket || isFetchingClubs) {
+  if (connectingWebSocket || isFetchingClubs||isLoading) {
     return <Skeleton className="h-8 w-[300px] max-sm:w-[200px] bg-neutral-600" />;
   }
 

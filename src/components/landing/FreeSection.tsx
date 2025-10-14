@@ -24,7 +24,7 @@ const bulletPoints = [
 
 export default function FreeSection() {
   return (
-    <section className="max-w-7xl mx-auto  relative  mt-40 max-md:mt-20 space-y-12 max-md:space-y-8 bg-radial-[50%_50%_at_50%_50%] from-gradient-via/20 to-transparent px-6">
+    <section id="pricing" className="max-w-7xl mx-auto  relative  mt-40 max-md:mt-20 space-y-12 max-md:space-y-8 bg-radial-[50%_50%_at_50%_50%] from-gradient-via/20 to-transparent px-6 max-sm:px-4">
       <div className=" flex flex-col items-center gap-2">
         <h2 className=" text-6xl max-md:text-5xl max-sm:text-3xl max-w-5xl text-center font-semibold text-secondary-foreground leading-[1.2]">
           No Subscriptions. No Paywalls. Just{" "}

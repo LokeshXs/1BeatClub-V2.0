@@ -70,9 +70,8 @@ export default function WebSocketClientProvider({
 
   //   UseEffect handling connecting to Websocket server when path is /dashboard
   useEffect(() => {
-    console.log(pathname);
     if (user && pathname === "/dashboard") {
-      connectToWebSocketServer(user.id);
+       connectToWebSocketServer(user.id);
       document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "visible") {
           if (wsClient?.readyState !== WebSocket.OPEN) {
@@ -82,15 +81,7 @@ export default function WebSocketClientProvider({
         }
       });
     }
-
-    return () => {
-      if (wsClientRef.current) {
-        wsClientRef.current.close();
-      }
-    };
   }, [connectToWebSocketServer, user, pathname]);
-
-  //   Todo: Add a case when user changes the Club
 
   // useEffect to ping to Websocket server every 10sec to maintain the connection
   useEffect(() => {

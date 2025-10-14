@@ -230,8 +230,8 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="  relative max-w-7xl mx-auto mt-40 max-md:mt-20 max-sm:mt-12 px-6">
-      <div className=" container mx-auto   px-6 max-sm:px-2 space-y-12 max-md:space-y-8 ">
+    <section id="features" className="  relative max-w-7xl mx-auto mt-40 max-md:mt-20 max-sm:mt-4 px-6 max-sm:px-4">
+      <div className=" container mx-auto   px-6  max-sm:px-2 space-y-12 max-md:space-y-8 ">
         <div className=" flex flex-col items-center gap-2">
           <h2 className=" text-4xl max-sm:text-2xl text-center font-semibold text-secondary-foreground">
             Where Vibes Meet Votes

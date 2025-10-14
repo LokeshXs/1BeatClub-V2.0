@@ -1,3 +1,8 @@
+
+export const MAIL = "support@1beatclub.com"
+
+
+
 export const TESTIMONIALS = [
   {
     name: "Helen Xiong",
@@ -53,6 +58,6 @@ export const NAV_LINKS=[
   },
   {
     label:"Contact us",
-    link:"/contactus"
+    link:"/contact"
   }
 ]
