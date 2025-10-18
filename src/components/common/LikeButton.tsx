@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useSongs } from "@/store/useSongs";
-import { useContext, useState, useTransition } from "react";
+import React, { useContext, useState, useTransition } from "react";
 import { WebSocketContext } from "@/context/WebSocketClientProvider";
 import { useMusicClubs } from "@/store/useMusicClubs";
 import { ListedSongType } from "@/lib/types";
@@ -18,69 +18,58 @@ const particles = Array.from({ length: 6 }, (_, i) => ({
   size: Math.random() * 3 + 2, // Random size between 2-5px
 }));
 
-export default function LikeButton({
+const LikeButton = ({
   isSongVoted,
   song,
 }: {
   isSongVoted: boolean;
   song: ListedSongType;
-}) {
+}) => {
   const { user } = useUser();
   const upvoteSong = useSongs((state) => state.upvoteSong);
   const downvoteSong = useSongs((state) => state.downvoteSong);
   const { webSocketClient } = useContext(WebSocketContext);
   const selectedClub = useMusicClubs((state) => state.selectedClub);
   const [_, startTransition] = useTransition();
+  const [isVoted, setIsVoted] = useState(isSongVoted);
+
+  const sendVote = (action: "UPVOTE" | "DOWNVOTE") => {
+    if (!webSocketClient) return;
+
+    webSocketClient.send(
+      JSON.stringify({
+        type: action,
+        data: {
+          clubId: selectedClub?.id,
+          songId: song.id,
+          userId: user?.id,
+        },
+      })
+    );
+
+    startTransition(() => {
+      voteSong({
+        songId: song.id,
+        userId: user?.id || "",
+        actionType: action,
+      });
+    });
+  };
 
   const voteHandler = async () => {
-    console.log(user?.id, song.id, selectedClub?.id);
-    if (isSongVoted) {
-      downvoteSong(user?.id || "", song.id);
-    
-      if (webSocketClient) {
-        webSocketClient.send(
-          JSON.stringify({
-            type: "DOWNVOTE",
-            data: {
-              clubId: selectedClub?.id,
-              songId: song.id,
-              userId: user?.id,
-            },
-          })
-        );
+    setIsVoted((prev) => !prev);
 
-        startTransition(() => {
-          voteSong({
-            songId: song.id,
-            userId: user?.id || "",
-            actionType: "DOWNVOTE",
-          });
-        });
+    setTimeout(() => {
+      if (isVoted) {
+        downvoteSong(user?.id || "", song.id);
+        sendVote("DOWNVOTE");
+      } else {
+        upvoteSong(user?.id || "", song.id);
+        sendVote("UPVOTE");
       }
-    } else {
-      upvoteSong(user?.id || "", song.id);
-      
-      if (webSocketClient) {
-        webSocketClient.send(
-          JSON.stringify({
-            type: "UPVOTE",
-            data: {
-              clubId: selectedClub?.id,
-              songId: song.id,
-              userId: user?.id,
-            },
-          })
-        );
-        startTransition(() => {
-          voteSong({
-            songId: song.id,
-            userId: user?.id || "",
-            actionType: "UPVOTE",
-          });
-        });
-      }
-    }
+    }, 500);
   };
+
   return (
     <div className="relative">
       <motion.button
@@ -89,7 +78,7 @@ export default function LikeButton({
           "h-10 w-10 max-sm:h-8 max-sm:w-8 p flex justify-center items-center rounded-full  shadow-[inset_0px_0px_10px_rgba(182,86,240,0.8)] hover:shadow-[inset_0px_0px_15px_rgba(182,86,240,0.8)] group transition-all duration-200 cursor-pointer relative z-10",
           {
             "hover:shadow-[inset_0px_0px_15px_rgba(231,114,123,0.8)] shadow-[inset_0px_0px_10px_rgba(231,114,123,0.8)]":
-              isSongVoted,
+              isVoted,
           }
         )}
         whileTap={{ scale: 0.95 }}
@@ -97,7 +86,7 @@ export default function LikeButton({
         {/* Heart SVG with bounce animation */}
         <motion.div
           animate={
-            isSongVoted
+            isVoted
               ? {
                   scale: [1, 0.8, 1.2, 1],
                 }
@@ -111,17 +100,17 @@ export default function LikeButton({
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill={isSongVoted ? "url(#heartGradient)" : "none"}
+            fill={isVoted ? "url(#heartGradient)" : "none"}
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
             className={`size-5 transition-all duration-300 ${
-              isSongVoted
+              isVoted
                 ? "text-pink-500 drop-shadow-lg"
                 : "group-hover:text-[rgba(182,86,240,1)]"
             }`}
             style={{
-              filter: isSongVoted
+              filter: isVoted
                 ? "drop-shadow(0 0 8px rgba(255, 95, 151, 0.6))"
                 : "none",
             }}
@@ -143,7 +132,7 @@ export default function LikeButton({
       </motion.button>
 
       {/* MAIN PARTICLES - Flying colored dots */}
-      {isSongVoted &&
+      {isVoted &&
         particles.map((particle) => (
           <motion.div
             key={particle.id}
@@ -178,4 +167,8 @@ export default function LikeButton({
         ))}
     </div>
   );
-}
+};
+
+export default React.memo(
+  LikeButton
+);

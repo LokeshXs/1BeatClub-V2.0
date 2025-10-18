@@ -60,7 +60,7 @@ export const useSongs = create<StoreType>((set) => ({
           song.id === songId
             ? {
                 ...song,
-                votes: [...song.votes, { userId: userId, songId: songId }],
+                votes: [...song.votes, { user_id: userId, songId: songId }],
               }
             : song
         )
@@ -74,7 +74,7 @@ export const useSongs = create<StoreType>((set) => ({
           song.id === songId
             ? {
                 ...song,
-                votes: song.votes.filter((vote) => vote.userId !== userId),
+                votes: song.votes.filter((vote) => vote.user_id !== userId),
               }
             : song
         )

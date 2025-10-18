@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import SongCard from "../common/SongCard";
 import { WebSocketContext } from "@/context/WebSocketClientProvider";
 import SongCardSkeleton from "../skeletons/SongCardSkeleton";
@@ -9,8 +9,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { ListedSongType } from "@/lib/types";
 import { useSongs } from "@/store/useSongs";
-import SuggestedSongsList from "./SuggestedSongsList";
 import { AnimatePresence } from "motion/react";
+
 
 export default function SongsVotingList() {
   const { connectingWebSocket } = useContext(WebSocketContext);
@@ -21,6 +21,8 @@ export default function SongsVotingList() {
   const setIsFetchingSongs = useSongs((state) => state.setIsFetchingSongs);
   const selectedMusicClub = useMusicClubs((state) => state.selectedClub);
   const fetchingClubs = useMusicClubs((state) => state.isFetchingClubs);
+
+
   const { error } = useQuery({
     queryKey: ["songs", selectedMusicClub],
     queryFn: async () => {
@@ -109,8 +111,8 @@ export default function SongsVotingList() {
   return (
     <div className="flex flex-col gap-4 max-h-[500px] min-h-[200px] overflow-y-auto p-4 overflow-x-hidden">
       <AnimatePresence mode="sync">
-        {listedSongsList.map((listedSong, idx) => (
-          <SongCard key={`listed-song-${idx}`} song={listedSong} />
+        {listedSongsList.map((listedSong, _) => (
+          <SongCard key={`listed-song-${listedSong.id}`} song={listedSong} />
         ))}
       </AnimatePresence>
 

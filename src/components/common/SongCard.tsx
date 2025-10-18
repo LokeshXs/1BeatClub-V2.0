@@ -5,12 +5,15 @@ import { ListedSongType } from "@/lib/types";
 import { useUser } from "@clerk/nextjs";
 import LikeButton from "./LikeButton";
 import DeleteButton from "./DeleteButton";
+import React from "react";
 
-export default function SongCard({ song }: { song: ListedSongType }) {
+const SongCard = ({ song }: { song: ListedSongType })=> {
   const { user } = useUser();
   const isSongVoted = Boolean(
-    song.votes.find((value) => value.userId === user?.id)
+    song.votes.find((value) => value.user_id === user?.id)
   );
+
+
 
   return (
     <motion.div
@@ -59,3 +62,6 @@ export default function SongCard({ song }: { song: ListedSongType }) {
     </motion.div>
   );
 }
+
+
+export default React.memo(SongCard,(prev,next)=>prev.song.id === next.song.id)

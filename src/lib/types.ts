@@ -20,7 +20,7 @@ export type ListedSongType = {
   link: string;
   videoId: string;
   clubId: string;
-  votes: { songId: number; userId: string }[];
+  votes: { songId: number; user_id: string }[];
 };
 
 export type UserInviteType = {

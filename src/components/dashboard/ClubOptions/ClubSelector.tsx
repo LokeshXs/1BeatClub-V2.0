@@ -100,7 +100,7 @@ export default function ClubSelector() {
         >
           {selectedClub ? (
             <span className=" flex gap-4 items-center ">
-              <p>
+              <p className=" max-w-60 max-sm:max-w-24 truncate">
                
                 {
                   musicClubs.find((club) => club.id === selectedClub.id)
@@ -155,7 +155,7 @@ export default function ClubSelector() {
                           : "opacity-40 text-muted-foreground"
                       )}
                     />
-                    <p className=" max-w-60 max-sm:max-w-32 truncate">{club.clubName}</p>
+                    <p className=" max-w-60 max-sm:max-w-24 truncate">{club.clubName}</p>
                   </div>
                   {club.iAmOwner ? (
                     <p className=" text-neutral-500">(creator)</p>

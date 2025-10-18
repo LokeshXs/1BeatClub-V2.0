@@ -75,7 +75,7 @@ export default function NavBar() {
                   className=" inset-shadow-custom-hover  transition-all duration-500   min-w-20 border-[1px] border-muted-foreground hover:border-white/50 hover:shadow-[inset_0px_0px_15px_rgba(255,248,248,0.2)]  max-md:hidden "
                 >
                   <Link
-                    href="/sign-in"
+                    href="/sign-up"
                     className="bg-gradient-to-r from-gradient-start via-gradient-via  to-gradient-end text-transparent bg-clip-text"
                   >
                     Sign Up
