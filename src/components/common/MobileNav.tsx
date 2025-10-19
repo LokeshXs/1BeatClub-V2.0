@@ -19,8 +19,12 @@ const MobileNav = () => {
           animate={{ top: 0, opacity: 1 }}
           exit={{ top: "100%", opacity: 0 }}
           transition={{ duration: 0.8, type: "spring" }}
-          className="fixed left-0 top-0 h-screen  w-screen  text-primary-foreground flex justify-center items-center  overflow-y-auto bg-background bg-radial-[140%_100%_at_50%_100%] from-gradient-start/20  "
+          className="fixed left-0 top-0 z-[12] h-screen  w-screen  text-primary-foreground flex justify-center items-center  overflow-y-auto bg-background bg-radial-[140%_100%_at_50%_100%] from-gradient-start/20  "
         >
+
+          <div className=" absolute top-6 right-6">
+            <AnimatedHamburgerButton />
+          </div>
           <div className="  p-8 max-sm:p-6 ">
             <motion.ul
               variants={{

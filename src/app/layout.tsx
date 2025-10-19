@@ -5,6 +5,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/landing/Footer";
+import MobileNav from "@/components/common/MobileNav";
+import MobileNavContextProvider from "@/context/MobileNavContextProvider";
 
 const inter = Inter({
   weight: ["400", "500", "600", "700", "800"],
@@ -64,9 +66,13 @@ export default function RootLayout({
     <ClerkProvider appearance={{ baseTheme: dark, cssLayerName: "clerk" }}>
       <html lang="en" className="light">
         <body className={`${inter.className}  antialiased`}>
-          <main className=" bg-background">
+          <main className=" bg-background relative">
+            <MobileNavContextProvider>
+
             <NavBar />
+             <MobileNav />
             {children}
+            </MobileNavContextProvider>
             <Footer />
           </main>
         </body>

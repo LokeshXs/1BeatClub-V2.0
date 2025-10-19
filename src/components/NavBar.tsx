@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { NAV_LINKS } from "@/lib/data";
 import AnimatedHamburgerButton from "./common/AnimatedHamburger";
-import MobileNav from "./common/MobileNav";
+
 import MobileNavContextProvider from "@/context/MobileNavContextProvider";
 import Image from "next/image";
 import { useAuth } from "@clerk/nextjs";
@@ -17,7 +17,7 @@ export default function NavBar() {
   const { isSignedIn } = useAuth();
 
   return (
-    <MobileNavContextProvider>
+    
       <div
         className={cn("  bg-transparent fixed top-0 w-full z-10 px-4  ", {
           hidden:
@@ -93,10 +93,10 @@ export default function NavBar() {
               </div>
             )}
           </div>
-          <MobileNav />
+         
         </motion.nav>
         {/* <div className=" absolute h-[1px]  left-0 inset-x-0 bg-gradient-to-r from-gradient-end/20 via-gradient-via/30 to-gradient-end/20" /> */}
       </div>
-    </MobileNavContextProvider>
+  
   );
 }

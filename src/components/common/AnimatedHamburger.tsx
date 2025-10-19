@@ -26,7 +26,7 @@ const AnimatedHamburgerButton = () => {
             return !prev;
           });
         }}
-        className=" relative h-7 w-6 transition-colors z-50 md:hidden  "
+        className=" relative h-7 w-6 transition-colors  md:hidden  "
         animate={isOpen ? "open" : "closed"}
       >
         <motion.span
