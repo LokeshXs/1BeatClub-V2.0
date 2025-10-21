@@ -9,11 +9,11 @@ export default function Page() {
         <h1 className=" text-4xl max-sm:text-2xl font-semibold">
           Contact Us
         </h1>
-        <p>
+        <p className="max-sm:text-sm">
          Have questions? We&apos;d love to hear from you.
         </p>
       </div>
-      <div className=" mt-12 space-y-4">
+      <div className=" mt-12 max-sm:mt-8 space-y-4 max-sm:text-sm">
         <div className=" flex items-center gap-2">
             <IconMailFilled/> <Link href={`mailto:${MAIL}`} className=" font-semibold underline">{MAIL}</Link>
         </div>

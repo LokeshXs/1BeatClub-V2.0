@@ -3,16 +3,13 @@ import { MAIL } from "@/lib/data";
 export default function Page() {
   return (
     <div className="max-w-7xl mx-auto pt-40 max-sm:pt-24 px-6  ">
-      <div className=" px-6 py-14 max-sm:py-8 border border-muted-foreground rounded-xl inset-shadow-custom flex flex-col gap-6 bg-gradient-to-br from-gradient-start/10 via-gradient-via/10 to-gradient-end/10">
+      <div className=" px-6  py-14 max-sm:py-8 border border-muted-foreground rounded-xl inset-shadow-custom flex flex-col gap-6 bg-gradient-to-br from-gradient-start/10 via-gradient-via/10 to-gradient-end/10">
         <h1 className=" text-4xl max-sm:text-2xl font-semibold">Privacy Policy</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-          aperiam, perferendis ipsa fuga modi repellat quisquam obcaecati quod
-          laudantium eius ea praesentium vero natus est asperiores accusamus
-          inventore, corporis incidunt!
+        <p className=" max-sm:text-sm">
+          At <strong>1BeatClub</strong>, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our platform to create music clubs, share songs, and connect with others.
         </p>
       </div>
-      <div className=" mt-12 space-y-8">
+      <div className=" mt-12 space-y-8 max-sm:text-sm">
         <div className=" space-y-2">
               <p className="mb-6">Effective Date: 10-10-2025</p>
           <h2 className=" text-2xl max-sm:text-lg font-semibold">

@@ -5,12 +5,12 @@ export default function Page() {
         <h1 className=" text-4xl max-sm:text-2xl font-semibold">
           Terms and Conditions
         </h1>
-        <p>
+        <p className="max-sm:text-sm">
           Welcome to 1BeatClub. By accessing our website and using our services,
           you agree to the following terms:
         </p>
       </div>
-      <div className=" mt-12 space-y-8">
+      <div className=" mt-12 space-y-8 max-sm:text-sm">
         <p className="mb-6">Last Updated: 10-10-2025</p>
         <div className=" space-y-2">
           <h2 className=" text-2xl max-sm:text-lg font-semibold">
