@@ -7,6 +7,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/landing/Footer";
 import MobileNav from "@/components/common/MobileNav";
 import MobileNavContextProvider from "@/context/MobileNavContextProvider";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({
   weight: ["400", "500", "600", "700", "800"],
@@ -75,6 +76,7 @@ export default function RootLayout({
             </MobileNavContextProvider>
             <Footer />
           </main>
+                  <GoogleAnalytics gaId="G-GL9GTQX9YY" />
         </body>
       </html>
     </ClerkProvider>
