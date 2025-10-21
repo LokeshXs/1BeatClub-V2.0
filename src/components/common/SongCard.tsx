@@ -6,6 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import LikeButton from "./LikeButton";
 import DeleteButton from "./DeleteButton";
 import React from "react";
+import { useSongs } from "@/store/useSongs";
 
 const SongCard = ({ song }: { song: ListedSongType })=> {
   const { user } = useUser();
@@ -13,7 +14,7 @@ const SongCard = ({ song }: { song: ListedSongType })=> {
     song.votes.find((value) => value.user_id === user?.id)
   );
 
-
+  
 
   return (
     <motion.div
@@ -64,4 +65,4 @@ const SongCard = ({ song }: { song: ListedSongType })=> {
 }
 
 
-export default React.memo(SongCard,(prev,next)=>prev.song.id === next.song.id)
+export default SongCard

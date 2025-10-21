@@ -54,7 +54,6 @@ export default function WebSocketClientProvider({
 
     // Event handler when Websocket connection closes
     ws.onclose = (event) => {
-      console.log("closing:",event);
       wsClientRef.current = null;
       setWsClient(null);
       setIsWebSocketConnected(false);
@@ -63,9 +62,6 @@ export default function WebSocketClientProvider({
 
     // Event handler when WebSocket errors
     ws.onerror = (event) => {
-  console.log(event);
-     
-    
       console.log("WebSocket connection is closing to Due to Error!");
       setWsError(new Error("WebSocket connection is closing to Due to Error!"));
     };
@@ -74,7 +70,7 @@ export default function WebSocketClientProvider({
   //   UseEffect handling connecting to Websocket server when path is /dashboard
   useEffect(() => {
     if (user && pathname === "/dashboard") {
-       connectToWebSocketServer(user.id);
+      connectToWebSocketServer(user.id);
       document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "visible") {
           if (wsClient?.readyState !== WebSocket.OPEN) {

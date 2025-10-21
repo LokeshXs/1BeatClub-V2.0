@@ -46,10 +46,10 @@ import { WebSocketContext } from "@/context/WebSocketClientProvider";
         throw new Error(data.message);
       }
 
-      console.log(data);
+      
       const clubMembers = data.members as MembersType[];
 
-      console.log(clubMembers);
+   
       setMembers(clubMembers);
       return clubMembers;
     },

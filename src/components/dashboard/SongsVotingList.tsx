@@ -26,7 +26,6 @@ export default function SongsVotingList() {
   const { error } = useQuery({
     queryKey: ["songs", selectedMusicClub],
     queryFn: async () => {
-      console.log(selectedMusicClub);
       setIsFetchingSongs(true);
       if (fetchingClubs || !selectedMusicClub) {
         return [];
@@ -39,7 +38,7 @@ export default function SongsVotingList() {
 
       const data = response.data;
 
-      console.log(data);
+     
       if (response.status !== 200) {
         throw new Error(data.message);
       }
