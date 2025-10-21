@@ -8,6 +8,7 @@ import Footer from "@/components/landing/Footer";
 import MobileNav from "@/components/common/MobileNav";
 import MobileNavContextProvider from "@/context/MobileNavContextProvider";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   weight: ["400", "500", "600", "700", "800"],
@@ -77,6 +78,7 @@ export default function RootLayout({
             <Footer />
           </main>
                   <GoogleAnalytics gaId="G-GL9GTQX9YY" />
+                       <Analytics />
         </body>
       </html>
     </ClerkProvider>
