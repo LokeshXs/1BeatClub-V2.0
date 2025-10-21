@@ -53,7 +53,8 @@ export default function WebSocketClientProvider({
     };
 
     // Event handler when Websocket connection closes
-    ws.onclose = () => {
+    ws.onclose = (event) => {
+      console.log("closing:",event);
       wsClientRef.current = null;
       setWsClient(null);
       setIsWebSocketConnected(false);
@@ -61,8 +62,10 @@ export default function WebSocketClientProvider({
     };
 
     // Event handler when WebSocket errors
-    ws.onerror = () => {
-      ws.close();
+    ws.onerror = (event) => {
+  console.log(event);
+     
+    
       console.log("WebSocket connection is closing to Due to Error!");
       setWsError(new Error("WebSocket connection is closing to Due to Error!"));
     };

@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     "music",
     "party"
   ],
+  metadataBase:new URL("https://1beatclub.com"),
   openGraph: {
     title: "1Beatclub — Music. Moments. Together.",
     description:
