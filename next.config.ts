@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "peerlist.io",
+      },
+      {
+        protocol: "https",
         hostname: "ph-avatars.imgix.net",
       },
       {

@@ -45,7 +45,12 @@ export default function HeroSection() {
   };
 
   return (
-    <GridBeams  gridColor="rgba(255, 95, 151,0.2)" backgroundColor="#ffffff03" rayOpacity={0.2}  raySpeed={0.5}>
+    <GridBeams
+      gridColor="rgba(255, 95, 151,0.2)"
+      backgroundColor="#ffffff03"
+      rayOpacity={0.2}
+      raySpeed={0.5}
+    >
       <motion.section
         initial={{
           backgroundImage: [
@@ -181,6 +186,24 @@ export default function HeroSection() {
         className=" min-h-screen  relative flex justify-center items-center mt-12 max-sm:mt-0  sm:hidden   "
       >
         <div className=" px-6  flex flex-col items-center gap-8 pb-6 ">
+         <div className=" flex flex-col gap-2 items-center">
+           <motion.div initial={{ y: 40, filter: "blur(10px)", opacity: 0 }}
+            animate={{ y: 0, filter: "blur(0px)", opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.3 }}>
+            <a
+              href="https://peerlist.io/lokeshs/project/1beatclub"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image
+                src="https://peerlist.io/api/v1/projects/embed/PRJHKKDNG8KKB6K7KFQKOKN9KAAL98?showUpvote=false&theme=dark"
+                alt="1Beatclub"
+                unoptimized
+                width={140}
+                height={140}
+              />
+            </a>
+          </motion.div>
           <motion.div
             initial={{ y: 40, filter: "blur(10px)", opacity: 0 }}
             animate={{ y: 0, filter: "blur(0px)", opacity: 1 }}
@@ -191,6 +214,7 @@ export default function HeroSection() {
               Turn Up the Music, Together 🎧
             </p>
           </motion.div>
+         </div>
           <motion.h1
             variants={parentVariants}
             initial="hidden"
