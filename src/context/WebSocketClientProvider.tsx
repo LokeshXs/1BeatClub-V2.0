@@ -71,14 +71,14 @@ export default function WebSocketClientProvider({
   useEffect(() => {
     if (user && pathname === "/dashboard") {
       connectToWebSocketServer(user.id);
-      document.addEventListener("visibilitychange", () => {
-        if (document.visibilityState === "visible") {
-          if (wsClient?.readyState !== WebSocket.OPEN) {
-            // Reconnecting after tab focus
-            connectToWebSocketServer(user.id);
-          }
-        }
-      });
+      // document.addEventListener("visibilitychange", () => {
+      //   if (document.visibilityState === "visible") {
+      //     if (wsClient?.readyState !== WebSocket.OPEN) {
+      //       // Reconnecting after tab focus
+      //       connectToWebSocketServer(user.id);
+      //     }
+      //   }
+      // });
     }
   }, [connectToWebSocketServer, user, pathname]);
 
