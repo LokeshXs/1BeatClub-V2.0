@@ -11,27 +11,31 @@ export default function Home() {
     <div>
       <HeroSection />
 
-       <DashboardSection />
+      <DashboardSection />
 
       <FeaturesSection />
 
-      <FreeSection/>
-      <TestimonilaSection/>
+      <FreeSection />
+      <TestimonilaSection />
 
-      <CTASection/>
+      <CTASection />
 
-        <div className=" fixed bottom-4 left-4 max-sm:left-1/2 max-sm:hidden z-20">
-          <a href="https://peerlist.io/lokeshs/project/1beatclub" target="_blank" rel="noreferrer" >
-				<Image
-					src="https://peerlist.io/api/v1/projects/embed/PRJHKKDNG8KKB6K7KFQKOKN9KAAL98?showUpvote=false&theme=dark"
-					alt="1Beatclub"
-          unoptimized
-					width={200}
-          height={200}
-          className=" max-sm:w-[300px]"
-				/>
-			</a>
-        </div>
+      <div className=" fixed bottom-4 left-4 max-sm:left-1/2 max-sm:hidden z-20">
+        <a
+          href="https://www.producthunt.com/products/1beatclub?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-1beatclub"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=683983&theme=dark&t=1764508352133"
+            alt="1BeatClub - Where&#0032;everyone’s&#0032;vibe&#0032;becomes&#0032;the&#0032;playlist | Product Hunt"
+            unoptimized
+            width={200}
+            height={200}
+            className=" max-sm:w-[300px]"
+          />
+        </a>
+      </div>
     </div>
   );
 }

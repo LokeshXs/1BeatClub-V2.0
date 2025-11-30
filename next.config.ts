@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
         hostname: "peerlist.io",
       },
       {
+        protocol:"https",
+        hostname:"api.producthunt.com"
+      },
+      {
         protocol: "https",
         hostname: "ph-avatars.imgix.net",
       },
