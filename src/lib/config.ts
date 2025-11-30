@@ -1,6 +1,6 @@
 
 // Production
- export const WEBSOCKET_SERVER_URL = "wss://ws.1beatclub.com";
+ export const WEBSOCKET_SERVER_URL = "wss://ws.1beatclub.in";
 
 // Developement
 // export const WEBSOCKET_SERVER_URL = "ws://localhost:8080";
