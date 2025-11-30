@@ -1,5 +1,5 @@
 
-export const MAIL = "support@1beatclub.com"
+export const MAIL = "support@1beatclub.in"
 
 
 

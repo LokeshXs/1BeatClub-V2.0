@@ -15,7 +15,7 @@ function QrCodeModal({
   setOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const selectedClub = useMusicClubs((state) => state.selectedClub);
-  const clubInviteUrl = `https://1beatclub.com/club-invite/${selectedClub?.id}`;
+  const clubInviteUrl = `https://1beatclub.in/club-invite/${selectedClub?.id}`;
   const [copied, setCopied] = useState(false);
 
   function copyInviteLink(invite: string) {
