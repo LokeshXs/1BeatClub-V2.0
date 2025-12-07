@@ -31,6 +31,10 @@ import { WebSocketContext } from "@/context/WebSocketClientProvider";
         throw new Error(
           "Something went wrong while loading your invites"
         );
+      } 
+
+      if(!openMembersModal){
+        return;
       }
       const response = await axios.get(
         `/api/club/members`,
