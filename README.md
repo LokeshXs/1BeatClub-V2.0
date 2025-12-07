@@ -58,10 +58,8 @@ Bring your group together with music everyone chooses ❤️
 ![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg11.png&w=640&q=75)
 ![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg2.png&w=640&q=75)
 ![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg3.png&w=640&q=75)
-![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg4.png&w=640&q=75)
 ![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg6.png&w=640&q=75)
 ![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg7.png&w=640&q=75)
-![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg8.png&w=640&q=75)
 ---
 
 ## 🛠️ Getting Started
