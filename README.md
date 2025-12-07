@@ -54,11 +54,14 @@ Bring your group together with music everyone chooses ❤️
 
 ## 🖼️ Preview
 
-![App Screenshot](https://minimal-portfolio-template-by-lokesh.vercel.app/_next/image?url=%2Fdemoscreenshots%2Fdemo1.png&w=640&q=100)
-![App Screenshot](https://minimal-portfolio-template-by-lokesh.vercel.app/_next/image?url=%2Fdemoscreenshots%2Fdemo2.png&w=640&q=100)
-![App Screenshot](https://minimal-portfolio-template-by-lokesh.vercel.app/_next/image?url=%2Fdemoscreenshots%2Fdemo3.png&w=640&q=100)
-![App Screenshot](https://minimal-portfolio-template-by-lokesh.vercel.app/_next/image?url=%2Fdemoscreenshots%2Fdemo4.png&w=640&q=100)
-
+![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg1.png&w=640&q=75)
+![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg11.png&w=640&q=75)
+![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg2.png&w=640&q=75)
+![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg3.png&w=640&q=75)
+![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg4.png&w=640&q=75)
+![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg6.png&w=640&q=75)
+![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg7.png&w=640&q=75)
+![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg8.png&w=640&q=75)
 ---
 
 ## 🛠️ Getting Started
@@ -66,8 +69,8 @@ Bring your group together with music everyone chooses ❤️
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/LokeshXs/1BeatClub-V2.0.git
-cd Minimal-Portfolio-Template-main
+git clone https://github.com/LokeshXs/1BeatClub.git
+cd 1beatclub
 ```
 
 ### 2. Install dependencies
@@ -101,7 +104,7 @@ npx prisma migrate dev
 
 1. Clone and run the WebSocket server from the repository below 👇
 
-👉 https://github.com/<your-username>/<your-websocket-repo>
+👉 https://github.com/LokeshXs/1beatclub-ws-server.git
 
 2. Follow the instructions in that repository to start the WebSocket server locally.
 
@@ -110,7 +113,7 @@ npx prisma migrate dev
 ```ts
 // /lib/config.ts
 
-export const WEBSOCKET_URL = "ws://localhost:8080";
+export const WEBSOCKET_SERVER_URL = "ws://localhost:8080";
 ```
 
 ### 6. Run the development server
