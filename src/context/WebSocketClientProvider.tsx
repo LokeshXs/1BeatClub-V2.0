@@ -49,7 +49,7 @@ export default function WebSocketClientProvider({
       setConnectingWebSocket(false);
       setIsWebSocketConnected(true);
       setWsError(null);
-      console.log("Websocket connected");
+      console.log("👌 Websocket connection successfull 👌");
     };
 
     // Event handler when Websocket connection closes
