@@ -60,6 +60,7 @@ Bring your group together with music everyone chooses ❤️
 ![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg3.png&w=640&q=75)
 ![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg6.png&w=640&q=75)
 ![App Screenshot](https://lokesh-singh.vercel.app/_next/image?url=%2Fprojects%2F1beatclub%2Fimg7.png&w=640&q=75)
+
 ---
 
 ## 🛠️ Getting Started
@@ -120,9 +121,26 @@ export const WEBSOCKET_SERVER_URL = "ws://localhost:8080";
 npm run dev
 
 ```
+
+### 6. Run the development server
+
+After the server starts successfully, open your browser and visit:
+
+```bash
+http://localhost:3000
+```
+
+If everything is setup correctly, you should now see the 1BeatClub app running locally 🎉
+
 ---
+
 ✨ **Why I built this**
 
 Because music brings people together — and every gathering deserves a shared playlist based on what everyone loves, not just the DJ 😄
 
+---
 
+## 🧑‍💻 Author
+
+**Lokesh Singh**  
+🔗 Portfolio — https://lokesh-singh.vercel.app/
