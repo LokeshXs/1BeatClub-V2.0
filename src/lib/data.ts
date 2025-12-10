@@ -1,6 +1,8 @@
 
 export const MAIL = "support@1beatclub.in"
 
+export const GITHUB_LINK="https://github.com/LokeshXs/1BeatClub"
+
 
 
 export const TESTIMONIALS = [

@@ -1,15 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { IconArrowRight } from "@tabler/icons-react";
-import { motion, stagger } from "motion/react";
+import { IconArrowRight, IconBrandGithubFilled } from "@tabler/icons-react";
+import { motion } from "motion/react";
 import Image from "next/image";
 import Lottie from "react-lottie";
 import animationData from "@/../public/assets/lottie/music.json";
-import SongCard from "../common/SongCard";
-import SongCardHeroSection from "../common/SongCardHeroSection";
 import Link from "next/link";
 import { GridBeams } from "../ui/grid-beams";
+import { GITHUB_LINK } from "@/lib/data";
 
 const defaultOptions = {
   loop: true,
@@ -81,19 +80,32 @@ export default function HeroSection() {
         // style={{
         //   backgroundImage:"radial-gradient(110% 110% at 50% 0%, transparent 60%, #b656f0)"
         // }}
-        className=" min-h-screen  relative flex justify-center items-center mt-12 max-sm:mt-0 max-sm:hidden    "
+        className=" min-h-screen  relative flex justify-center items-center mt-10 max-sm:mt-0 max-sm:hidden    "
       >
-        <div className=" px-6  flex flex-col items-center gap-8 pb-6 ">
-          <motion.div
-            initial={{ y: 40, filter: "blur(10px)", opacity: 0 }}
-            animate={{ y: 0, filter: "blur(0px)", opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.3 }}
-            className=" border border-muted-foreground bg-secondary px-4 rounded-full text-sm py-1 "
+        <div className=" px-6  flex flex-col items-center gap-4 pb-12 ">
+          <Button
+            asChild
+            className=" border rounded-full text-xs border-gradient-end shadow-custom shadow-[inset_0px_0px_10px_rgba(182,86,240,0.8)] hover:hover:shadow-[inset_0px_0px_6px_rgba(182,86,240,0.8)] mb-4 transition-all duration-300"
           >
-            <p className=" bg-gradient-to-br from-gradient-start/80 via-gradient-via/80 to-gradient-end/80 text-transparent bg-clip-text max-md:text-sm">
-              Turn Up the Music, Together 🎧
-            </p>
-          </motion.div>
+            <Link href={GITHUB_LINK}>
+              <IconBrandGithubFilled />
+              Star on Github
+            </Link>
+          </Button>
+
+          <div>
+            <motion.div
+              initial={{ y: 40, filter: "blur(10px)", opacity: 0 }}
+              animate={{ y: 0, filter: "blur(0px)", opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.3 }}
+              className=" border border-muted-foreground bg-secondary px-4 rounded-full text-sm py-1 "
+            >
+              <p className=" bg-gradient-to-br from-gradient-start/80 via-gradient-via/80 to-gradient-end/80 text-transparent bg-clip-text max-md:text-sm">
+                Turn Up the Music, Together 🎧
+              </p>
+            </motion.div>
+          </div>
+
           <motion.h1
             variants={parentVariants}
             initial="hidden"
@@ -185,36 +197,28 @@ export default function HeroSection() {
         // }}
         className=" min-h-screen  relative flex justify-center items-center mt-12 max-sm:mt-0  sm:hidden   "
       >
-        <div className=" px-6  flex flex-col items-center gap-8 pb-6 ">
-         <div className=" flex flex-col gap-2 items-center">
-           <motion.div initial={{ y: 40, filter: "blur(10px)", opacity: 0 }}
-            animate={{ y: 0, filter: "blur(0px)", opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.3 }}>
-            <a
-              href="https://peerlist.io/lokeshs/project/1beatclub"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                src="https://peerlist.io/api/v1/projects/embed/PRJHKKDNG8KKB6K7KFQKOKN9KAAL98?showUpvote=false&theme=dark"
-                alt="1Beatclub"
-                unoptimized
-                width={140}
-                height={140}
-              />
-            </a>
-          </motion.div>
-          <motion.div
-            initial={{ y: 40, filter: "blur(10px)", opacity: 0 }}
-            animate={{ y: 0, filter: "blur(0px)", opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.3 }}
-            className=" border border-muted-foreground bg-secondary px-4 rounded-full text-sm py-1 "
+        <div className=" px-6  flex flex-col items-center gap-6 pb-6 ">
+          <div className=" flex flex-col gap-2 items-center">
+             <Button
+            asChild
+            className=" border rounded-full text-xs border-gradient-end shadow-custom shadow-[inset_0px_0px_10px_rgba(182,86,240,0.8)] hover:hover:shadow-[inset_0px_0px_6px_rgba(182,86,240,0.8)] mb-4 transition-all duration-300"
           >
-            <p className=" bg-gradient-to-br from-gradient-start/80 via-gradient-via/80 to-gradient-end/80 text-transparent bg-clip-text max-md:text-sm">
-              Turn Up the Music, Together 🎧
-            </p>
-          </motion.div>
-         </div>
+            <Link href={GITHUB_LINK}>
+              <IconBrandGithubFilled />
+              Star on Github
+            </Link>
+          </Button>
+            <motion.div
+              initial={{ y: 40, filter: "blur(10px)", opacity: 0 }}
+              animate={{ y: 0, filter: "blur(0px)", opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.3 }}
+              className=" border border-muted-foreground bg-secondary px-4 rounded-full text-sm py-1 "
+            >
+              <p className=" bg-gradient-to-br from-gradient-start/80 via-gradient-via/80 to-gradient-end/80 text-transparent bg-clip-text max-md:text-sm">
+                Turn Up the Music, Together 🎧
+              </p>
+            </motion.div>
+          </div>
           <motion.h1
             variants={parentVariants}
             initial="hidden"
